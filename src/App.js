@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {
       usersdata : [],
       time: '0:0:0',
-      filterArray: []
+      inputValue:''
     };
     this.getInputValue = this.getInputValue.bind(this);
     setInterval(() => {this.updateClock()}, 1000);
@@ -36,25 +36,26 @@ class App extends React.Component {
   }
   getInputValue (event){
     const TargetValue = event.currentTarget.value; 
-    const Array = this.state.usersdata.filter(item => item.email.includes(TargetValue));
-    this.setState({filterArray : Array});
+    this.setState({inputValue : TargetValue});
   }
   componentDidMount(){
     this.getData();
   }
 
   render() { 
-
+    const filteredData = 
+      this.state.usersdata.filter(item =>  item.email.includes(this.state.inputValue));
+    
       return (    
         this.state.usersdata === [] ?    
         <p> Esperando respuesta del server </p>
         :
         <div className="App">
         <Page 
-          data = {this.state.usersdata} 
+          filteredData = {filteredData}
           time = {this.state.time} 
           inputAction = {this.getInputValue}
-          filterArray = {this.state.filterArray}
+          inputValue = {this.state.inputValue}
         />
         </div>
       );

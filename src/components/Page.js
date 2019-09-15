@@ -8,39 +8,27 @@ import Status from './Status';
 class Page extends React.Component {
 
   render() {
-    const stateLength = this.props.filterArray.length;
-    return ( stateLength !== 0 ?  
+    return ( 
       <React.Fragment>
         <Header />
         <aside className = "aside">
-          <Filters inputAction = {this.props.inputAction}/>
-          <Status data = {this.props.filterArray}/>
+          <Filters inputAction = {this.props.inputAction} inputValue = {this.props.inputValue} />
+          <Status data = {this.props.filteredData}/>
         </aside>
         <CardList 
-          data = {this.props.filterArray} 
-        />
-        <Footer time = {this.props.time}/>
-      </React.Fragment>
-      :
-      <React.Fragment>
-        <Header />
-        <aside className = "aside">
-          <Filters inputAction = {this.props.inputAction}/>
-          <Status data = {this.props.data}/>
-        </aside>
-        <CardList 
-          data = {this.props.data} 
+          filteredData = {this.props.filteredData}
         />
         <Footer time = {this.props.time}/>
       </React.Fragment>
       );
-
   }
 }
+
 Page.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filteredData: PropTypes.arrayOf(PropTypes.object).isRequired,
   time: PropTypes.string.isRequired,
   inputAction : PropTypes.func.isRequired,
+  inputValue : PropTypes.string.isRequired
 };
 
 export default Page;
