@@ -10,13 +10,14 @@ class Page extends React.Component {
       <React.Fragment>
         <Header />
         <CardList data = {this.props.data}/>
-        <Footer />
+        <Footer time = {this.props.time}/>
       </React.Fragment>
     );
   }
 }
 Page.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  time: PropTypes.string.isRequired
 };
 
 export default Page;

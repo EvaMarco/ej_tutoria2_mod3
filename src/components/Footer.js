@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Footer extends React.Component {
 
@@ -6,10 +7,14 @@ class Footer extends React.Component {
     return (
       <React.Fragment>
         <p> "loh();" </p>
-        <p>futuro reloj</p>
+        <p>{this.props.time}</p>
       </React.Fragment>
     );
   }
 }
+Footer.propTypes = {
+  time: PropTypes.string.isRequired
+};
+
 
 export default Footer;

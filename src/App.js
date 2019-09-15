@@ -23,7 +23,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Page data = {this.state.usersdata}/>
+        <Page data = {this.state.usersdata} time = {this.state.time}/>
       </div>
     );
   }
