@@ -4,9 +4,11 @@ class Header extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <h1>Legion on Hell</h1>
-      </React.Fragment>
+        <header className="header">
+          <h1 className = "page__title">
+            Legion on Hell
+          </h1>
+        </header>
     );
   }
 }

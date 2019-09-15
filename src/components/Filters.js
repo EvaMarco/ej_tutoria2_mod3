@@ -7,7 +7,7 @@ class Filters extends React.Component {
     return (
       <React.Fragment>
         <p>Introduce tu email para comprobar si estas en nuestra base de datos:</p>
-        <input type="text" onChange = {this.props.inputAction}/>
+        <input className = "input" type="text" onChange = {this.props.inputAction}/>
       </React.Fragment>
     );
   }

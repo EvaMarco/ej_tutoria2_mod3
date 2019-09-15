@@ -5,10 +5,10 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="footer">
         <p> "loh();" </p>
         <p>{this.props.time}</p>
-      </React.Fragment>
+      </div>
     );
   }
 }

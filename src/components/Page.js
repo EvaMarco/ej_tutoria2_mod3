@@ -12,8 +12,10 @@ class Page extends React.Component {
     return ( stateLength !== 0 ?  
       <React.Fragment>
         <Header />
-        <Filters inputAction = {this.props.inputAction}/>
-        <Status data = {this.props.filterArray}/>
+        <aside className = "aside">
+          <Filters inputAction = {this.props.inputAction}/>
+          <Status data = {this.props.filterArray}/>
+        </aside>
         <CardList 
           data = {this.props.filterArray} 
         />
@@ -22,8 +24,10 @@ class Page extends React.Component {
       :
       <React.Fragment>
         <Header />
-        <Filters inputAction = {this.props.inputAction}/>
-        <Status data = {this.props.data}/>
+        <aside className = "aside">
+          <Filters inputAction = {this.props.inputAction}/>
+          <Status data = {this.props.data}/>
+        </aside>
         <CardList 
           data = {this.props.data} 
         />

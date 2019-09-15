@@ -7,9 +7,10 @@ class CardList extends React.Component {
   render() {
       return (
         <React.Fragment>
+          <h2>Información obtenida </h2>
           <ul className="person__list">
-            {this.props.data.map((item) =>   
-              <li key={item.id}>
+            {this.props.data.map((item, index) =>   
+              <li key={index}>
                 <DataCard item = {item}/>
               </li>      
             )}
