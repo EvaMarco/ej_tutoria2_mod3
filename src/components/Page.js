@@ -8,7 +8,18 @@ import Status from './Status';
 class Page extends React.Component {
 
   render() {
-    return (
+    const stateLength = this.props.filterArray.length;
+    return ( stateLength !== 0 ?  
+      <React.Fragment>
+        <Header />
+        <Filters inputAction = {this.props.inputAction}/>
+        <Status data = {this.props.filterArray}/>
+        <CardList 
+          data = {this.props.filterArray} 
+        />
+        <Footer time = {this.props.time}/>
+      </React.Fragment>
+      :
       <React.Fragment>
         <Header />
         <Filters inputAction = {this.props.inputAction}/>
@@ -18,7 +29,8 @@ class Page extends React.Component {
         />
         <Footer time = {this.props.time}/>
       </React.Fragment>
-    );
+      );
+
   }
 }
 Page.propTypes = {

@@ -7,7 +7,7 @@ class Status extends React.Component {
     return (
       <React.Fragment>
         <p> El numero de coincidencias es de 
-        {this.props.data.length}.</p>
+         {this.props.data.length}.</p>
       </React.Fragment>
     );
   }
