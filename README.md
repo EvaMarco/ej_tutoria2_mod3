@@ -7,5 +7,8 @@ Lo primero que vamos a hacer es pintar los datos que hemos conseguido.
 
 ## Fase 2.
 
-Vamos a dividir nuestra app en componentes. 
+Vamos a dividir nuestra app en componentes y añadir un reloj al footer. 
 
+## Fase 3
+
+Vamos a añadir un filter para el mail.
