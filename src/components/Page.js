@@ -8,27 +8,31 @@ import Status from './Status';
 class Page extends React.Component {
 
   render() {
+    const {data, query, inputAction} = this.props;
+    const filteredData = data.filter(item => 
+      item.email.toUpperCase().includes(query.toUpperCase()));
     return ( 
       <React.Fragment>
         <Header />
         <aside className = "aside">
-          <Filters inputAction = {this.props.inputAction} inputValue = {this.props.inputValue} />
-          <Status data = {this.props.filteredData}/>
+          <Filters inputAction = {inputAction}  />
+          <Status filteredData = {filteredData}/>
         </aside>
-        <CardList 
-          filteredData = {this.props.filteredData}
-        />
-        <Footer time = {this.props.time}/>
+        <main>
+          <CardList 
+            filteredData = {filteredData}
+          />
+        </main>
+        <Footer />
       </React.Fragment>
       );
   }
 }
 
 Page.propTypes = {
-  filteredData: PropTypes.arrayOf(PropTypes.object).isRequired,
-  time: PropTypes.string.isRequired,
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
   inputAction : PropTypes.func.isRequired,
-  inputValue : PropTypes.string.isRequired
+  query : PropTypes.string.isRequired
 };
 
 export default Page;

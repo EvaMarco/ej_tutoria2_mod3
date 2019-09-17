@@ -2,17 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Status extends React.Component {
-
   render() {
     return (
-      <React.Fragment>
-        <p> El numero de coincidencias es de  {this.props.data.length}.</p>
-      </React.Fragment>
+        <p> Hay {this.props.filteredData.length}{this.props.filteredData.length === 1? ' resultado' : ' resultados'}. </p>
     );
   }
 }
 
 Status.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  filteredData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 export default Status;

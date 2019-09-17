@@ -6,19 +6,28 @@ class DataCard extends React.Component {
     const item = this.props.item;
     return (
       <div className="card">
-        <h3 className = "name_title">Nombre: </h3>
+        <h3 className = "name_title"> 
+          <i className="fas fa-skull"></i> Nombre: </h3>
         <p className="name">{item.name}</p>
-        <h3 className = "mail_title"> Email</h3>
+        <h3 className = "mail_title"> 
+          <i className="far fa-envelope"></i> Email
+        </h3>
         <p className="mail">{item.email}</p>
-        <h3 className = "pass_title">Contraseñas</h3>
+        <h3 className = "pass_title"> 
+          <i className="fas fa-unlock-alt"></i> Contraseñas
+        </h3>
         <ul className="pass__list">
-          {item.passwords.map((pass, index)=> <li className = "pass" key = {index}>{pass}</li>)}
+          {item.passwords.map((pass, index) => 
+            <li className = "pass" key = {index}>
+              {pass}
+            </li>)
+          }
         </ul>
-        <h3 className = "bank_title">Información bancaria</h3>
+        <h3 className = "bank_title"> <i className="fas fa-money-check-alt"></i> Información bancaria</h3>
         <div className="bank__info">
-          <h4>Cuenta Bancaria</h4>
+          <h4 className = "bank__info-title">Cuenta Bancaria</h4>
           <p className="bank__account">{item.bank.iban}</p>
-          <h4>Pin</h4>
+          <h4 className = "bank__info-title">Pin</h4>
           <p className="bank__pin">{item.bank.pin}</p>
         </div>
       </div >

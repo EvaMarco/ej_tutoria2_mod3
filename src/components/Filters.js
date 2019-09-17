@@ -12,10 +12,6 @@ class Filters extends React.Component {
     );
   }
 }
-Filters.propTypes = {
-
-};
-
 
 Filters.propTypes = {
   inputAction: PropTypes.func.isRequired

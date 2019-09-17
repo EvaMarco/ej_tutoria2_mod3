@@ -8,6 +8,7 @@ class Header extends React.Component {
           <h1 className = "page__title">
             Legion on Hell
           </h1>
+          <p className ="header__text">la privacidad es una farsa, los datos son libres.</p>
         </header>
     );
   }

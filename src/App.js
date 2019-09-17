@@ -4,59 +4,52 @@ import './scss/main.scss';
 import Page from './components/Page';
 import {fetchReasons} from './services/Endpoint';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      usersdata : [],
-      time: '0:0:0',
-      inputValue:''
+      data : [],
+      query:'',
+      date: ''
     };
     this.getInputValue = this.getInputValue.bind(this);
-    setInterval(() => {this.updateClock()}, 1000);
-  
   }
-  getData(){
-    fetchReasons()
-      .then(data => {
-        this.setState({
-          usersdata: data.data
-        });
-      }
-    );
-  }
-  updateClock(){
-    const newDate = new Date();
-    const hour = newDate.getHours();
-    const minutes = newDate.getMinutes();
-    const seconds = newDate.getSeconds();
-    const actualTime = `${hour}:${minutes}:${seconds}`;
-    this.setState({time : actualTime});
-  }
-  getInputValue (event){
-    const TargetValue = event.currentTarget.value; 
-    this.setState({inputValue : TargetValue});
-  }
+
   componentDidMount(){
     this.getData();
   }
 
+  getData(){
+    fetchReasons()
+      .then(result => {
+        this.setState({
+          data: result.data,
+          date: result.date
+        });
+      }
+    );
+  }
+
+  getInputValue (event){
+    const TargetValue = event.currentTarget.value; 
+    this.setState({query : TargetValue});
+  }
+
   render() { 
-    const filteredData = 
-      this.state.usersdata.filter(item =>  item.email.includes(this.state.inputValue));
+    const {data, query} = this.state
     
       return (    
-        this.state.usersdata === [] ?    
-        <p> Esperando respuesta del server </p>
+        this.state.usersdata === [] ?  
+        <div className = 'App'>  
+          <p> Esperando respuesta del server </p>
+        </div>
         :
         <div className="App">
-        <Page 
-          filteredData = {filteredData}
-          time = {this.state.time} 
-          inputAction = {this.getInputValue}
-          inputValue = {this.state.inputValue}
-        />
+          <Page 
+            data = {data}
+            inputAction = {this.getInputValue}
+            query = {query}
+          />
         </div>
       );
     }
